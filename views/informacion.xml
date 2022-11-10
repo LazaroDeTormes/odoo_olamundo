@@ -1,0 +1,93 @@
+<odoo>
+  <data>
+    <!-- explicit list view definition -->
+
+    <record model="ir.actions.act_window" id="informacion_list_action">
+      <field name="name">la acción de información</field>
+      <field name="res_model">odoo_basico.informacion</field>
+      <field name="view_mode">tree,form</field>
+      <field name="help" type="xml">
+        <p class="o_view_nocontent_smiling_face">crea el primer registro</p>
+      </field>
+    </record>
+
+    <record model="ir.ui.view" id="informacion_tree_view">
+                <field name="name">informacion.tree</field>
+                <field name="model">odoo_basico.informacion</field>
+                <field name="arch" type="xml">
+                    <tree string="Árbol">
+                        <field name="name"/>
+                        <field name="descripcion"/>
+                        <field name="peso"/>
+                        <field name="sexo_traducido"/>
+                        <field name="autorizado"/>
+                        <field name="alto_en_cms"/>
+                        <field name="ancho_en_cms"/>
+                        <field name="largo_en_cms"/>
+                    </tree>
+                </field>
+    </record>
+    <record model="ir.ui.view" id="informacion_form_view">
+            <field name="name">informacion.form</field>
+            <field name="model">odoo_basico.informacion</field>
+            <field name="arch" type="xml">
+                <form string="Formulario para Ola Mundo">
+
+                      <group>
+                          <field name="name"/>
+                          <field name="descripcion"/>
+                          <field name="peso"/>
+                          <field name="sexo_traducido"/>
+                          <field name="autorizado"/>
+                          <field name="alto_en_cms"/>
+                          <field name="ancho_en_cms"/>
+                          <field name="largo_en_cms"/>
+                      </group>
+
+                </form>
+            </field>
+    </record>
+
+    <!-- actions opening views on models -->
+<!--
+    <record model="ir.actions.act_window" id="odoo_basico.action_window">
+      <field name="name">odoo_basico window</field>
+      <field name="res_model">odoo_basico.odoo_basico</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+-->
+
+    <!-- server action to the one above -->
+<!--
+    <record model="ir.actions.server" id="odoo_basico.action_server">
+      <field name="name">odoo_basico server</field>
+      <field name="model_id" ref="model_odoo_basico_odoo_basico"/>
+      <field name="state">code</field>
+      <field name="code">
+        action = {
+          "type": "ir.actions.act_window",
+          "view_mode": "tree,form",
+          "res_model": model._name,
+        }
+      </field>
+    </record>
+-->
+
+    <!-- Top menu item -->
+<!--
+    <menuitem name="odoo_basico" id="odoo_basico.menu_root"/>
+-->
+    <!-- menu categories -->
+<!--
+    <menuitem name="Menu 1" id="odoo_basico.menu_1" parent="odoo_basico.menu_root"/>
+    <menuitem name="Menu 2" id="odoo_basico.menu_2" parent="odoo_basico.menu_root"/>
+-->
+    <!-- actions -->
+<!--
+    <menuitem name="List" id="odoo_basico.menu_1_list" parent="odoo_basico.menu_1"
+              action="odoo_basico.action_window"/>
+    <menuitem name="Server to list" id="odoo_basico" parent="odoo_basico.menu_2"
+              action="odoo_basico.action_server"/>
+-->
+  </data>
+</odoo>
