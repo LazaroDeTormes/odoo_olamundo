@@ -65,7 +65,7 @@
                         </page>
                         <page string="Monedas">
                             <group>
-
+<!--                                <field name="moneda_id"/>-->
                             </group>
                         </page>
                         <page string="Fechas">
