@@ -28,9 +28,14 @@ class informacion(models.Model):
     adxunto_nome = fields.Char(string="Nome Adxunto")
     adxunto = fields.Binary(string="Arquivo adxunto")
 
-    # moneda_id = fields.Many2one('res.currency', domain="[('position','=','after')]")
-    #
-    # gasto_en_euros = fields.Monetary("Gasto en Euros", 'moneda_euro_id')
+    moneda_euro_id = fields.Many2one('res.currency',
+                                default=lambda self: self.env['res.currency'].search([('name', '=', 'EUR')], limit=1))
+
+    moneda_id = fields.Many2one('res.currency', domain="[('position','=','after')]")
+
+    gasto_en_euros = fields.Monetary("Gasto en Euros", 'moneda_euro_id')
+
+    moneda_en_texto = fields.Char(relaed="moneda_id.currency_unit_labl", string="Moneda en formato de texto", store=True)
 
     @api.depends('alto_en_cms', 'ancho_en_cms', 'largo_en_cms')
     def _volume(self):

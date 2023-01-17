@@ -65,7 +65,10 @@
                         </page>
                         <page string="Monedas">
                             <group>
-<!--                                <field name="moneda_id"/>-->
+                                <field name="moneda_id"/>
+                                <field name="moneda_euro_id" invisible="1"/>
+                                <field name="moneda_en_texto"/>
+                                <field name="gasto_en_euros"/>
                             </group>
                         </page>
                         <page string="Fechas">
@@ -99,7 +102,7 @@
             <field name="is_default">false</field>
             <field name="active">true</field>
             <field name="sort">[]</field>
-            <field name="domain">['|','&amp;',('autorizado', '=', False),('sexo_traducido', '=', 'Mujer'),('name', '=','Rexistro 3' )]</field><!-- Aquí iría o filtro -->
+            <field name="domain">['|','&amp;',('autorizado', '=', False),('sexo_traducido', '=', 'Mujer'),('name', '=','Rexistro 3' )]</field> <!-- Aquí iría o filtro -->
             <field name="user_id"></field><!-- En blanco para que esté dispoñible para todos os usuarios -->
             <field name="action_id" eval="ref('odoo_basico.informacion_list_action')"/><!-- Obtemos o id a partir do id externo-->
         </record>
