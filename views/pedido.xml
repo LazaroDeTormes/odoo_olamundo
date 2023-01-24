@@ -16,7 +16,7 @@
             <field name="arch" type="xml">
                 <tree string="Tree para pedido">
                     <field name="name"/>
-                    <field name="lineapedido_ids"/>
+                    <field name="lineapedido_id"/>
                 </tree>
             </field>
         </record>
@@ -37,7 +37,7 @@
                         <field name="name"/>
                     </group>
                     <separator string="Visualizar y añadir"/>
-                    <field name="lineapedido_ids"/>
+                    <field name="lineapedido_id"/>
                 </form>
             </field>
         </record>

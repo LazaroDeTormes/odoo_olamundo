@@ -28,6 +28,8 @@
         'views/informacion.xml',
         'views/templates.xml',
         'views/suceso.xml',
+        'views/pedido.xml',
+        'views/lineapedido.xml',
         'views/menu.xml',
         'security/ir.model.access.csv'
     ],
