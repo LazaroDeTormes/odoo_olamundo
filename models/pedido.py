@@ -15,13 +15,13 @@ class pedido(models.Model):
             self.env['odoo_basico.informacion']._cambia_campo_sexo(rexistro)
 
     def creaRexistroInformacion(self):
-        creado_id = self.env['odoo_basico.informacion'].create({'name': 'Creado dende pedido'})
-        creado_id.descripcion = "Creado dende o modelo pedido"
+        creado_id = self.env['odoo_basico.informacion'].create({'name': 'Creado desde pedido'})
+        creado_id.descripcion = "Creado desde el modelo pedido"
         creado_id.autorizado = False
 
     def actualizaRexistroInformacion(self):
-        informacion_id = self.env['odoo_basico.informacion'].search([('name', '=', 'Creado dende pedido')])
+        informacion_id = self.env['odoo_basico.informacion'].search([('name', '=', 'Creado desde pedido')])
         if informacion_id:
             informacion_id.name = "Actualizado ..."
-            informacion_id.descripcion = "Actualizado dende o modelo pedido"
+            informacion_id.descripcion = "Actualizado desde el modelo pedido"
             informacion_id.sexo_traducido = "Mujer"

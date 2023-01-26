@@ -3,7 +3,7 @@
         <record model="ir.actions.act_window" id="pedido_list_action">
             <field name="name">La acción con pedido</field>
             <field name="res_model">odoo_basico.pedido</field>
-            <field name="view_mode">tree, form</field>
+            <field name="view_mode">form</field>
             <field name="help" type="html">
                 <p class="o_view_nocontent_smiling_face">Has de crear el primer registro</p>
             </field>
@@ -30,14 +30,17 @@
                 <form string="Formulario para pedido">
                     <header>
                         <button name="actualizadorSexo" type="object" string="Actualiza o campo Sexo do modelo información"/>
-                        <button name="crearRegistroInfo" type="object" string="Crea un objeto"/>
-                        <button name="actualizaRegistroInfo" type="object" string="Crea un objeto"/>
+                        <button name="creaRexistroInformacion" type="object" string="Crea un objeto"/>
+                        <button name="actualizaRexistroInformacion" type="object" string="Actualiza objeto"/>
                     </header>
-                    <group>
-                        <field name="name"/>
-                    </group>
-                    <separator string="Visualizar y añadir"/>
-                    <field name="lineapedido_id"/>
+
+                    <sheet>
+                        <group>
+                            <field name="name"/>
+                        </group>
+                        <separator string="Visualizar y añadir"/>
+                        <field name="lineapedido_id"/>
+                    </sheet>
                 </form>
             </field>
         </record>

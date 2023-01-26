@@ -1,8 +1,8 @@
 from odoo import models, fields, api
 
 
-class linerapedido(models.Model):
-    _name = 'odoo_basico.pedido'
+class lineapedido(models.Model):
+    _name = 'odoo_basico.lineapedido'
     _description = 'Ejemplo de pedido'
 
     name = fields.Char(required=True, size=20, string="Línea de pedido")
