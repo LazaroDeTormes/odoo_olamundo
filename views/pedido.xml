@@ -3,7 +3,7 @@
         <record model="ir.actions.act_window" id="pedido_list_action">
             <field name="name">La acción con pedido</field>
             <field name="res_model">odoo_basico.pedido</field>
-            <field name="view_mode">form</field>
+            <field name="view_mode">tree,form</field>
             <field name="help" type="html">
                 <p class="o_view_nocontent_smiling_face">Has de crear el primer registro</p>
             </field>
@@ -16,7 +16,7 @@
             <field name="arch" type="xml">
                 <tree string="Tree para pedido">
                     <field name="name"/>
-                    <field name="lineapedido_id"/>
+                    <field name="fecha_hora"/>
                 </tree>
             </field>
         </record>
@@ -26,21 +26,19 @@
             <field name="name">pedido.form</field>
             <field name="model">odoo_basico.pedido</field>
             <field name="arch" type="xml">
-
                 <form string="Formulario para pedido">
                     <header>
                         <button name="actualizadorSexo" type="object" string="Actualiza o campo Sexo do modelo información"/>
                         <button name="creaRexistroInformacion" type="object" string="Crea un objeto"/>
                         <button name="actualizaRexistroInformacion" type="object" string="Actualiza objeto"/>
+                        <button name="actualizadorZonaHoraria" type="object" string="Actualiza Zona Horaria del Usuario en todos os registros del modelo información"/>
                     </header>
-
-                    <sheet>
-                        <group>
-                            <field name="name"/>
-                        </group>
-                        <separator string="Visualizar y añadir"/>
-                        <field name="lineapedido_id"/>
-                    </sheet>
+                    <group>
+                        <field name="name"/>
+                        <field name="fecha_hora"/>
+                    </group>
+                    <separator string="Visualizar y añadir"/>
+                    <field name="lineapedido_id"/>
                 </form>
             </field>
         </record>

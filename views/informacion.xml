@@ -11,6 +11,19 @@
       </field>
     </record>
 
+    <record model="ir.ui.view" id="informacion_search_view">
+        <field name="name">informacion.search</field>
+        <field name="model">odoo_basico.informacion</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="name"/>
+                <field name="descripcion"/>
+                <field name="autorizado"/>
+                <field name="sexo_traducido"/>
+            </search>
+        </field>
+    </record>
+
     <record model="ir.ui.view" id="informacion_tree_view">
                 <field name="name">informacion.tree</field>
                 <field name="model">odoo_basico.informacion</field>
@@ -26,6 +39,11 @@
                         <field name="largo_en_cms"/>
                         <field name="volume"/>
                         <field name="densidade"/>
+                        <field name="fecha"/>
+                        <field name="fecha_hora"/>
+                        <field name="hora_utc"/>
+                        <field name="hora_actual"/>
+                        <field name="zona_horaria_usuario"/>
                     </tree>
                 </field>
     </record>
@@ -66,6 +84,7 @@
                         <page string="Monedas">
                             <group>
                                 <field name="moneda_id"/>
+                                <field name="creador_de_moneda"/>
                                 <field name="moneda_euro_id" invisible="1"/>
                                 <field name="moneda_en_texto"/>
                                 <field name="gasto_en_euros"/>
@@ -73,7 +92,17 @@
                         </page>
                         <page string="Fechas">
                             <group>
-
+                                <group>
+                                    <field name="fecha_hora"/>
+                                    <field name="hora_utc"/>
+                                    <field name="hora_actual"/>
+                                    <field name="zona_horaria_usuario"/>
+                                </group>
+                                <group>
+                                    <field name="fecha"/>
+                                    <field name="mes_castellano"/>
+                                    <field name="mes_galego"/>
+                                </group>
                             </group>
                         </page>
                     </notebook>
@@ -87,8 +116,11 @@
         <field name="name">informacion.grafico</field>
         <field name="model">odoo_basico.informacion</field>
         <field name="arch" type="xml">
-            <graph string="densidades" type="bar">
-                <field name="densidade" type="row"/>
+            <graph string="Datos" type="bar">
+                <!--                    <field name="alto_en_cms" type="row"/>-->
+                <!--                    <field name="ancho_en_cms" type="row"/>-->
+                <!--                    <field name="longo_en_cms" type="row"/>-->
+                <field name="name" type="row"/>
             </graph>
         </field>
     </record>
@@ -103,7 +135,7 @@
             <field name="active">true</field>
             <field name="sort">[]</field>
             <field name="domain">['|','&amp;',('autorizado', '=', False),('sexo_traducido', '=', 'Mujer'),('name', '=','Rexistro 3' )]</field> <!-- Aquí iría o filtro -->
-            <field name="user_id"></field><!-- En blanco para que esté dispoñible para todos os usuarios -->
+            <field name="user_id"></field><!-- En blanco para que esté disponible para todos los usuarios -->
             <field name="action_id" eval="ref('odoo_basico.informacion_list_action')"/><!-- Obtemos o id a partir do id externo-->
         </record>
 
@@ -116,7 +148,7 @@
             <field name="active">true</field>
             <field name="sort">[]</field>
             <field name="domain">['|','&amp;',('autorizado', '=', False),('sexo_traducido', '=', 'Mujer'),('name', '=','Rexistro 3' )]</field><!-- Aquí iría o filtro -->
-            <field name="user_id"></field><!-- En blanco para que esté dispoñible para todos os usuarios -->
+            <field name="user_id"></field><!-- En blanco para que esté disponible para todos los usuarios -->
             <field name="action_id" eval="ref('odoo_basico.informacion_list_action')"/><!-- Obtemos o id a partir do id externo-->
         </record>
     <!-- actions opening views on models -->

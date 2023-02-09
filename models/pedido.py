@@ -25,3 +25,8 @@ class pedido(models.Model):
             informacion_id.name = "Actualizado ..."
             informacion_id.descripcion = "Actualizado desde el modelo pedido"
             informacion_id.sexo_traducido = "Mujer"
+
+    def actualizadorZonaHoraria(self):
+        informacion_ids = self.env['odoo_basico.informacion'].search([])
+        for registro in informacion_ids:
+            self.env['odoo_basico.informacion'].actualiza_hora_zona_horaria_usuario(registro)
