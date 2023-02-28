@@ -51,7 +51,11 @@
             <field name="name">informacion.form</field>
             <field name="model">odoo_basico.informacion</field>
             <field name="arch" type="xml">
-                <form string="Formulario para Ola Mundo">
+                <form string="Formulario para información">
+                    <header>
+                        <button name="ver_contexto" type="object" string="Ver Contexto"/>
+                        <button name="envio_email" type="object" string="Enviar Email"/>
+                    </header>
                     <group>
                         <field name="name"/>
                     </group>
@@ -151,6 +155,13 @@
             <field name="user_id"></field><!-- En blanco para que esté disponible para todos los usuarios -->
             <field name="action_id" eval="ref('odoo_basico.informacion_list_action')"/><!-- Obtemos o id a partir do id externo-->
         </record>
+
+
+
+
+
+
+
     <!-- actions opening views on models -->
 <!--
     <record model="ir.actions.act_window" id="odoo_basico.action_window">

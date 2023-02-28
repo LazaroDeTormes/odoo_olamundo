@@ -31,10 +31,10 @@
     </record>
 
     <report id="action_report_informacion"
-            string="Listaje de Información"
-            model="odoo_basico.informacion" report_type="qweb-pdf"
-            name="odoo_basico.report_informacion_template"
-            paperformat="paperformat_euro_portrait"
+        string="Listaje de Información"
+        model="odoo_basico.informacion" report_type="qweb-pdf"
+        name="odoo_basico.report_informacion_template"
+        paperformat="paperformat_euro_portrait"
     />
 
     <report id="action_report_foto_informacion"

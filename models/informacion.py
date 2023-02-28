@@ -155,3 +155,19 @@ class informacion(models.Model):
         for registro in self:
             registro.mes_galego = registro.fecha.strftime("%B")
         locale.setlocale(locale.LC_TIME, misUtilidades.cadeaTextoSegunPlataforma('Spanish_Spain.1252', 'es_ES.utf8'))
+
+    def envio_email(self):
+        mi_user = self.env.user
+        mail_reply_to = mi_user.partener_id.email
+        mail_para = 'emaildedestino@servidordedestino.com'
+        mail_valores= {
+            'subject': 'Aquí va el asunto',
+            'autor_id': mi_user.id,
+            'email_from': mail_reply_to,
+            'email_to': mail_para,
+            'message_type': 'email',
+            'body_html': 'Aquí va el cuerpo del correo con datos, como por ejemplo "%s ' % self.descripcion
+        }
+        mail_id = self.env['mail.mail'].create(mail_valores)
+        mail_id.sudo().send()
+        return True
